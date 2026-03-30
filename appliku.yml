@@ -1,5 +1,5 @@
 build_settings:
-  build_image: custom
+  build_image: dockerfile
   dockerfile_path: Dockerfile
   dockerfile_context_path: .
   container_port: 8000
@@ -13,8 +13,8 @@ build_settings:
 
 services:
   web:
-    command: gunicorn --chdir backend config.wsgi:application --bind 0.0.0.0:$PORT
+    command: sh -c 'gunicorn --chdir backend config.wsgi:application --bind 0.0.0.0:${PORT:-8000}'
     scale: 1
 
   release:
-    command: python backend/manage.py migrate
+    command: sh -c 'python backend/manage.py migrate && python backend/manage.py collectstatic --noinput'
