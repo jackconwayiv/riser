@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+Thumbs.db
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.sqlite3
+backend/db.sqlite3
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+frontend/node_modules/
+
+# Django static/media build outputs
+backend/staticfiles/
+backend/frontend_build/
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Vite / misc logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Editor / IDE
+.vscode/
+.idea/
