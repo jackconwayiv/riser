@@ -13,8 +13,8 @@ build_settings:
 
 services:
   web:
-    command: sh -c 'gunicorn --chdir backend config.wsgi:application --bind 0.0.0.0:${PORT:-8000}'
+    command: sh -c 'gunicorn config.wsgi:application --bind 0.0.0.0:${PORT:-8000}'
     scale: 1
 
   release:
-    command: sh -c 'python backend/manage.py migrate && python backend/manage.py collectstatic --noinput'
+    command: sh -c 'python manage.py migrate && python manage.py collectstatic --noinput'
