@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#001427"/>
+      <stop offset="55%" style="stop-color:#0d2438"/>
+      <stop offset="100%" style="stop-color:#8d0801"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" style="stop-color:#bf0603;stop-opacity:0.35"/>
+      <stop offset="45%" style="stop-color:#f4d58d;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#708d81;stop-opacity:0"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="72%" cy="28%" r="35%">
+      <stop offset="0%" style="stop-color:#f4d58d;stop-opacity:0.55"/>
+      <stop offset="70%" style="stop-color:#f4d58d;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#sun)"/>
+  <path fill="#001427" opacity="0.45" d="M0 720 L320 560 L520 640 L780 480 L1040 600 L1280 520 L1520 620 L1920 500 L1920 1080 L0 1080 Z"/>
+  <path fill="#708d81" opacity="0.35" d="M0 780 L360 640 L640 720 L920 580 L1200 680 L1480 620 L1920 560 L1920 1080 L0 1080 Z"/>
+  <path fill="#001427" opacity="0.65" d="M0 860 L400 740 L720 800 L1080 700 L1440 780 L1920 680 L1920 1080 L0 1080 Z"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+</svg>
