@@ -145,20 +145,6 @@ export default function Layout() {
             <NavLink to="/contact">Contact</NavLink>
           </nav>
           <div className="site-footer__col site-footer__col--contact">
-            <p className="site-footer__contact-name">Rick Beedle</p>
-            <p className="site-footer__contact-role">Firefighter &amp; Inventor</p>
-            <p className="site-footer__contact-line">
-              <a href="mailto:rbeedle@ems-innovations.com">
-                <FaEnvelope aria-hidden className="site-footer__contact-icon" />
-                rbeedle@ems-innovations.com
-              </a>
-            </p>
-            <p className="site-footer__contact-line">
-              <a href="tel:+14807103954">
-                <FaPhone aria-hidden className="site-footer__contact-icon" />
-                480-710-3954
-              </a>
-            </p>
             <NavLink
               to="/about"
               className="site-footer__ems-logo-link image-link"
@@ -173,6 +159,20 @@ export default function Layout() {
                 decoding="async"
               />
             </NavLink>
+            <p className="site-footer__contact-name">Rick Beedle</p>
+            <p className="site-footer__contact-role">Firefighter &amp; Inventor</p>
+            <p className="site-footer__contact-line">
+              <a href="mailto:rbeedle@ems-innovations.com">
+                <FaEnvelope aria-hidden className="site-footer__contact-icon" />
+                rbeedle@ems-innovations.com
+              </a>
+            </p>
+            <p className="site-footer__contact-line">
+              <a href="tel:+14807103954">
+                <FaPhone aria-hidden className="site-footer__contact-icon" />
+                480-710-3954
+              </a>
+            </p>
           </div>
           <p className="site-footer__copy">
             © {year}{" "}

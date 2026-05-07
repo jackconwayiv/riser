@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "anymail",
     "core",
 ]
 
@@ -89,6 +90,21 @@ STORAGES = {
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
+}
+
+EMAIL_BACKEND = "anymail.backends.resend.EmailBackend"
+ANYMAIL = {
+    "RESEND_API_KEY": os.environ.get("RESEND_API_KEY", ""),
+}
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "noreply@ems-innovations.com")
+CONTACT_RECIPIENT_EMAIL = os.environ.get(
+    "CONTACT_RECIPIENT_EMAIL", "rbeedle@ems-innovations.com"
+)
+
+REST_FRAMEWORK = {
+    "DEFAULT_THROTTLE_RATES": {
+        "contact": "5/hour",
+    }
 }
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

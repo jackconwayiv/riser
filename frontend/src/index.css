@@ -360,7 +360,7 @@ a:hover {
 }
 
 .site-footer__ems-logo {
-  margin-top: 12px;
+  margin: 0 0 12px;
   width: min(108px, 36vw);
   height: auto;
   display: block;
@@ -950,6 +950,27 @@ a:hover {
   resize: vertical;
 }
 
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-error {
+  margin: 8px 0 0;
+  color: var(--brand-red-deep);
+  font-size: 0.88rem;
+}
+
+.form-success {
+  margin: 12px 0 0;
+  color: #1f5f2a;
+  font-size: 0.9rem;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -1046,7 +1067,7 @@ a:hover {
 
 .home-position__text {
   margin: 0;
-  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -1072,7 +1093,33 @@ a:hover {
   color: var(--text);
 }
 
+.home-value__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  gap: clamp(18px, 2.5vw, 30px);
+  align-items: center;
+}
+
+.home-value__media {
+  margin: 0;
+}
+
+.home-value__img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0;
+  box-shadow: none;
+  background: #fff;
+}
+
 @media (max-width: 640px) {
+  .home-value__layout {
+    grid-template-columns: 1fr;
+  }
+
   .home-value__lead {
     font-size: 1.08rem;
     line-height: 1.58;

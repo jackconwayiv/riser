@@ -24,7 +24,7 @@ export function AwardsSection() {
             >
               <img
                 src={asset("inno-winner.jpg")}
-                alt="2025 EMS World Innovation Awards finalist badge"
+                alt="2025 EMS World Innovation Awards winner badge"
                 width={280}
                 height={140}
                 loading="lazy"
@@ -33,7 +33,7 @@ export function AwardsSection() {
               />
             </a>
             <figcaption className="home-awards__caption">
-              2025 EMS World Innovation Awards - finalist
+              2025 EMS World Innovation Awards - winner
             </figcaption>
           </figure>
           <figure className="home-awards__figure">
@@ -68,15 +68,39 @@ export function ValueSection() {
     <section className="home-value section section--alt home-value--border">
       <div className="container">
         <h2 className="section__title home-value__title">Why The Riser</h2>
-        <p className="home-value__lead">
-          The first and only portable lifting device that reduces the amount of
-          force needed to lift a patient by providing a stable platform and
-          leverage, yielding a{" "}
-          <strong className="home-value__stat">6:1 mechanical advantage</strong>{" "}
-          for two users. A <strong className="home-value__stat">300 lb</strong>{" "}
-          patient can be lifted using only{" "}
-          <strong className="home-value__stat">50 lb</strong> of force.
-        </p>
+        <div className="home-value__layout">
+          <figure className="home-value__media">
+            <img
+              src={asset("RISER-action-side.jpg")}
+              alt="Side view of The Riser in active use"
+              width={320}
+              height={240}
+              loading="lazy"
+              decoding="async"
+              className="home-value__img"
+            />
+          </figure>
+          <p className="home-value__lead">
+            The first and only portable lifting device that reduces the amount of
+            force needed to lift a patient by providing a stable platform and
+            leverage, yielding a{" "}
+            <strong className="home-value__stat">6:1 mechanical advantage</strong>{" "}
+            for two users. A <strong className="home-value__stat">300 lb</strong>{" "}
+            patient can be lifted using only{" "}
+            <strong className="home-value__stat">50 lb</strong> of force.
+          </p>
+          <figure className="home-value__media">
+            <img
+              src={asset("RISER-action-angle.jpg")}
+              alt="Angled view of The Riser in active use"
+              width={320}
+              height={240}
+              loading="lazy"
+              decoding="async"
+              className="home-value__img"
+            />
+          </figure>
+        </div>
         <div className="home-value__actions">
           <Link className="btn btn--primary" to="/product#specifications-features">
             View specifications
@@ -161,17 +185,7 @@ export function OrgCaseSection() {
       <div className="container">
         <header className="home-org-case__intro">
           <h2 className="home-org-case__title">
-            Why should my organization buy{" "}
-            <img
-              className="home-org-case__title-logo"
-              src={asset("riser-logo.jpg")}
-              alt="The Riser"
-              width={200}
-              height={56}
-              loading="lazy"
-              decoding="async"
-            />
-            ?
+            Why should my organization buy The Riser?
           </h2>
         </header>
 
@@ -209,29 +223,8 @@ export function OrgCaseSection() {
         </div>
 
         <div className="home-org-case__roi">
-          <div className="home-org-case__roi-brand">
-            <img
-              src={asset("ems-innovations.jpg")}
-              alt="EMS Innovations"
-              width={200}
-              height={200}
-              loading="lazy"
-              decoding="async"
-              className="home-org-case__roi-img"
-            />
-          </div>
           <p className="home-org-case__roi-text">
-            The cost of{" "}
-            <img
-              className="home-org-case__roi-inline-logo"
-              src={asset("riser-logo.jpg")}
-              alt="The Riser"
-              width={140}
-              height={40}
-              loading="lazy"
-              decoding="async"
-            />{" "}
-            will be recouped with the prevention of a single injury of just one
+            The cost of The Riser will be recouped with the prevention of a single injury of just one
             employee and will continue to save the organization money
             exponentially over its lifespan.
           </p>
