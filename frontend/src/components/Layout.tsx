@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
   "nav-link" + (isActive ? " nav-link--active" : "");
 
 const NAV_MQ = "(max-width: 900px)";
+const asset = (path: string) => import.meta.env.BASE_URL + path;
 
 export default function Layout() {
   const year = new Date().getFullYear();
@@ -52,6 +54,19 @@ export default function Layout() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
+      <div className="site-topbar">
+        <div className="site-topbar__inner">
+          <a href="mailto:rbeedle@ems-innovations.com" className="site-topbar__item">
+            <FaEnvelope aria-hidden className="site-topbar__icon" />
+            rbeedle@ems-innovations.com
+          </a>
+          <span aria-hidden>•</span>
+          <a href="tel:+14807103954" className="site-topbar__item">
+            <FaPhone aria-hidden className="site-topbar__icon" />
+            480-710-3954
+          </a>
+        </div>
+      </div>
       {narrowNav && navOpen ? (
         <div
           className="site-nav-backdrop"
@@ -61,7 +76,13 @@ export default function Layout() {
       ) : null}
       <header className="site-header">
         <NavLink className="site-logo" to="/" end>
-          The Riser
+          <img
+            src={asset("riser-logo.jpg")}
+            alt="The Riser"
+            width={220}
+            height={62}
+            className="site-logo__img"
+          />
         </NavLink>
         <button
           ref={toggleRef}
@@ -104,19 +125,61 @@ export default function Layout() {
       </main>
       <footer className="site-footer">
         <div className="site-footer__inner">
-          <div>
-            <p className="site-footer__brand">The Riser</p>
+          <div className="site-footer__col site-footer__col--brand">
+            <NavLink to="/" className="site-footer__logo-link image-link">
+              <img
+                src={asset("riser-logo.jpg")}
+                alt="The Riser"
+                width={220}
+                height={62}
+                className="site-footer__logo"
+              />
+            </NavLink>
             <p className="site-footer__tagline">
               Lift Smarter. Not Harder.
             </p>
           </div>
-          <nav className="footer-nav" aria-label="Footer">
+          <nav className="site-footer__col footer-nav" aria-label="Footer">
             <NavLink to="/product">Product</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/contact">Contact</NavLink>
           </nav>
+          <div className="site-footer__col site-footer__col--contact">
+            <p className="site-footer__contact-name">Rick Beedle</p>
+            <p className="site-footer__contact-role">Firefighter &amp; Inventor</p>
+            <p className="site-footer__contact-line">
+              <a href="mailto:rbeedle@ems-innovations.com">
+                <FaEnvelope aria-hidden className="site-footer__contact-icon" />
+                rbeedle@ems-innovations.com
+              </a>
+            </p>
+            <p className="site-footer__contact-line">
+              <a href="tel:+14807103954">
+                <FaPhone aria-hidden className="site-footer__contact-icon" />
+                480-710-3954
+              </a>
+            </p>
+            <NavLink
+              to="/about"
+              className="site-footer__ems-logo-link image-link"
+            >
+              <img
+                src={asset("ems-innovations.jpg")}
+                alt="EMS Innovations"
+                width={120}
+                height={120}
+                className="site-footer__ems-logo"
+                loading="lazy"
+                decoding="async"
+              />
+            </NavLink>
+          </div>
           <p className="site-footer__copy">
-            © {year} The Riser. All rights reserved.
+            © {year}{" "}
+            <NavLink to="/about" className="site-footer__copy-link">
+              EMS Innovations, LLC
+            </NavLink>
+            . All rights reserved.
           </p>
         </div>
       </footer>

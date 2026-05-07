@@ -1,65 +1,45 @@
+import { Link } from "react-router-dom";
+import { SpecsSection, StepsSection, ValueSection } from "../components/RiserSections.tsx";
+
 export default function Product() {
   return (
     <>
       <div className="page-hero">
         <div className="container">
-          <h1 className="page-hero__title">Product</h1>
+          <nav className="page-crumb" aria-label="Breadcrumb">
+            <Link className="page-crumb__home" to="/">
+              The Riser
+            </Link>
+            <span className="page-crumb__sep" aria-hidden>
+              &gt;
+            </span>
+            <span className="page-crumb__current">Product</span>
+          </nav>
+          <h1 className="page-hero__title">What is The Riser?</h1>
           <p className="page-hero__lead">
-            Specifications and details for The Riser. Replace placeholder values
-            with your final manufacturing data when ready.
+            Detailed product information, usage flow, and full feature specs for
+            The Riser.
           </p>
         </div>
       </div>
-      <div className="page-body">
-        <div className="container prose">
-          <h2>Overview</h2>
-          <p>
-            The Riser is a compact lifting aid engineered to improve posture and
-            leverage during repetitive picks and controlled lifts. Use this page
-            for dimensions, materials, compatibility, and warranty copy tailored
-            to your launch.
-          </p>
-          <h2>Specifications</h2>
-          <table className="spec-table">
-            <tbody>
-              <tr>
-                <th scope="row">Weight</th>
-                <td>TBD (e.g. 2.4 lb / 1.1 kg)</td>
-              </tr>
-              <tr>
-                <th scope="row">Dimensions (L × W × H)</th>
-                <td>TBD</td>
-              </tr>
-              <tr>
-                <th scope="row">Primary materials</th>
-                <td>TBD (e.g. steel, polymer grip)</td>
-              </tr>
-              <tr>
-                <th scope="row">Load rating</th>
-                <td>TBD — always cite tested limits</td>
-              </tr>
-              <tr>
-                <th scope="row">Finish</th>
-                <td>TBD</td>
-              </tr>
-              <tr>
-                <th scope="row">Included</th>
-                <td>TBD (e.g. storage hook, quick-start card)</td>
-              </tr>
-            </tbody>
-          </table>
-          <h2>Compatibility &amp; safety</h2>
-          <ul>
-            <li>Document intended use cases and clear limits.</li>
-            <li>List surfaces or accessories the product is validated with.</li>
-            <li>Link to any required safety or regulatory notices.</li>
-          </ul>
-          <h2>Warranty</h2>
-          <p>
-            Placeholder: describe warranty period, what is covered, and how to
-            make a claim.
-          </p>
-        </div>
+      <div className="page-body about-page-body">
+        <ValueSection />
+        <StepsSection />
+        <SpecsSection />
+        <section className="about-cta">
+          <div className="container about-cta__inner">
+            <p className="about-cta__lead">
+              Learn the story and mission behind The Riser, then reach out to
+              discuss the right fit for your team.
+            </p>
+            <Link className="btn btn--secondary" to="/about">
+              Who We Are
+            </Link>
+            <Link className="btn btn--ghost" to="/contact">
+              Get in Touch
+            </Link>
+          </div>
+        </section>
       </div>
     </>
   );
