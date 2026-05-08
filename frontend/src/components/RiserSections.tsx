@@ -5,15 +5,18 @@ import {
   ORG_STATS,
   RISER_SPECS,
   RISER_STEPS,
+  USFA_ERGONOMICS_WELLNESS_PDF_URL,
 } from "../content/riserContent.ts";
 
 const asset = (path: string) => import.meta.env.BASE_URL + path;
 
 export function AwardsSection() {
   return (
-    <section className="home-awards section section--alt">
+    <section
+      className="home-awards section section--alt"
+      aria-label="Recognition"
+    >
       <div className="container">
-        <h2 className="section__title home-awards__title">Recognition</h2>
         <div className="home-awards__grid">
           <figure className="home-awards__figure">
             <a
@@ -179,6 +182,43 @@ export function SpecsSection() {
   );
 }
 
+export function MechanicalAdvantageVideoSection() {
+  const videoSrc =
+    import.meta.env.BASE_URL + encodeURI("EMS WORLD PROMO.mov");
+
+  return (
+    <section
+      className="home-mechanical-promo section"
+      aria-labelledby="mechanical-advantage-video-heading"
+    >
+      <div className="container">
+        <h2
+          id="mechanical-advantage-video-heading"
+          className="home-mechanical-promo__title"
+        >
+          The Riser Provides a 6:1 Mechanical Advantage
+        </h2>
+        <div className="home-mechanical-promo__frame">
+          <video
+            className="home-mechanical-promo__video"
+            src={videoSrc}
+            controls
+            playsInline
+            preload="metadata"
+            aria-label="Promotional video: The Riser 6:1 mechanical advantage (EMS World)"
+          >
+            Your browser does not support embedded video.{" "}
+            <a className="home-mechanical-promo__fallback" href={videoSrc}>
+              Download the video
+            </a>
+            .
+          </video>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function OrgCaseSection() {
   return (
     <section className="home-org-case section section--alt">
@@ -190,44 +230,85 @@ export function OrgCaseSection() {
         </header>
 
         <div className="home-org-case__endorse">
-          <div className="home-org-case__endorse-badge" aria-hidden>
-            USFA
-          </div>
-          <figure className="home-org-case__endorse-quote">
-            <blockquote cite="https://www.usfa.fema.gov/">
-              <p>
-                Ergonomic interventions are recommended tools to reduce the risk
-                of musculoskeletal industrial injuries ... by implementing the use
-                of equipment that can reduce physical demands.
-              </p>
-            </blockquote>
-            <figcaption className="home-org-case__endorsecite">
-              Source: U.S. Fire Administration
-            </figcaption>
-          </figure>
+          <a
+            className="home-org-case__endorse-link"
+            href={USFA_ERGONOMICS_WELLNESS_PDF_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open U.S. Fire Administration Emergency Services: Ergonomics and Wellness (PDF, new tab)"
+          >
+            <img
+              className="home-org-case__logo"
+              src={asset("stats/US Fire Admin logo.png")}
+              alt="U.S. Fire Administration"
+              width={120}
+              height={60}
+              loading="lazy"
+              decoding="async"
+            />
+            <figure className="home-org-case__endorse-quote">
+              <blockquote cite={USFA_ERGONOMICS_WELLNESS_PDF_URL}>
+                <p>
+                  Ergonomic interventions are recommended tools to reduce the risk
+                  of musculoskeletal industrial injuries ... by implementing the use
+                  of equipment that can reduce physical demands.
+                </p>
+              </blockquote>
+              <figcaption className="home-org-case__source-cite">
+                Source: U.S. Fire Administration
+              </figcaption>
+            </figure>
+          </a>
         </div>
 
         <div className="home-org-case__stats-wrap">
           <div className="home-org-case__stat-grid" role="list">
-            {ORG_STATS.map((item) => (
-              <article
-                key={item.id}
-                className={`home-stat-card home-stat-card--${item.accent}`}
-                role="listitem"
-              >
-                <h4 className="home-stat-card__agency">{item.agency}</h4>
-                <p className="home-stat-card__body">{item.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
+            {ORG_STATS.map((item) => {
+              const inner = (
+                <div className="home-stat-card__row">
+                  <img
+                    className="home-org-case__logo"
+                    src={asset(item.logoSrc)}
+                    alt=""
+                    width={120}
+                    height={60}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="home-stat-card__text">
+                    <p className="home-stat-card__body">{item.body}</p>
+                    <p className="home-stat-card__source home-org-case__source-cite">
+                      Source: {item.agency}
+                    </p>
+                  </div>
+                </div>
+              );
 
-        <div className="home-org-case__roi">
-          <p className="home-org-case__roi-text">
-            The cost of The Riser will be recouped with the prevention of a single injury of just one
-            employee and will continue to save the organization money
-            exponentially over its lifespan.
-          </p>
+              return (
+                <article
+                  key={item.id}
+                  className={`home-stat-card home-stat-card--${item.accent}${
+                    item.sourceUrl ? " home-stat-card--linked" : ""
+                  }`}
+                  role="listitem"
+                >
+                  {item.sourceUrl ? (
+                    <a
+                      className="home-stat-card__link"
+                      href={item.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${item.agency} source document (opens in new tab)`}
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    inner
+                  )}
+                </article>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

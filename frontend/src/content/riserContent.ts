@@ -5,7 +5,15 @@ export type OrgStat = {
   agency: string;
   body: string;
   accent: OrgStatAccent;
+  /** Filename under `public/stats/` */
+  logoSrc: string;
+  /** Official publication URL when verified */
+  sourceUrl?: string;
 };
+
+/** USFA – *Emergency Services: Ergonomics and Wellness* (PDF); passage on ergonomic interventions & equipment. */
+export const USFA_ERGONOMICS_WELLNESS_PDF_URL =
+  "https://www.usfa.fema.gov/downloads/pdf/publications/emergency-services-ergonomics-and-wellness.pdf";
 
 export const ORG_STATS: OrgStat[] = [
   {
@@ -13,54 +21,70 @@ export const ORG_STATS: OrgStat[] = [
     agency: "NIH",
     body: "53% of EMS injuries are caused by strains or sprains. 51% of which occurred when moving a patient NOT involving a gurney.",
     accent: "neutral",
+    logoSrc: "stats/NIH.png",
   },
   {
     id: "naemt",
     agency: "NAEMT",
     body: "1 in 4 EMS workers will suffer a career-ending back injury within the first 4 years of service.",
     accent: "neutral",
+    logoSrc: "stats/NAEMT-Logo.png",
+    sourceUrl:
+      "https://www.naemt.org/docs/default-source/ems-health-and-safety-documents/Recommended_EMS_Fitness_Guidelines.pdf?sfvrsn=6",
   },
   {
     id: "niosh",
     agency: "NIOSH",
     body: "$1,600 daily cost of EMS worker absence.",
     accent: "ems",
+    logoSrc: "stats/NIOSH.png",
   },
   {
     id: "nfpa",
     agency: "NFPA",
     body: "52% of firefighter injuries are strains or sprains. 30% of lost time is due to strains or sprains.",
     accent: "fire",
+    logoSrc: "stats/NFPA-Logo.png",
   },
   {
     id: "iaff",
     agency: "IAFF",
     body: "50% of firefighter disability retirements stem from an on-duty back injury.",
     accent: "fire",
+    logoSrc: "stats/IAFF 2.png",
   },
   {
     id: "osha-cost",
     agency: "OSHA",
     body: "$32,023 average cost of workplace strain injury.",
     accent: "ems",
+    logoSrc: "stats/OSHA-Logo-2.png",
+    sourceUrl: "https://www.osha.gov/safetypays/estimator",
   },
   {
     id: "cdc",
     agency: "CDC",
     body: "Mechanical lifting devices reduce healthcare worker injuries by 66%.",
     accent: "ems",
+    logoSrc: "stats/CDC logo.png",
   },
   {
     id: "osha-lift",
     agency: "OSHA",
     body: "Safe patient handling programs that include mechanical lifts reduce lifting injuries by 95%.",
     accent: "neutral",
+    logoSrc: "stats/OSHA round logo.jpg",
+    sourceUrl:
+      "https://www.osha.gov/sites/default/files/publications/OSHA3279.pdf",
   },
   {
     id: "nist",
     agency: "NIST",
     body: "$50,000–$200,000 annual cost of firefighter injuries per fire department.",
     accent: "ems",
+    logoSrc: "stats/NIST logo 2.png",
+    sourceUrl:
+      "https://www.govinfo.gov/content/pkg/GOVPUB-C13-b8dbdb94136ba36aad8a6192de01aedf/pdf/GOVPUB-C13-b8dbdb94136ba36aad8a6192de01aedf.pdf",
   },
 ];
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 type Status = "idle" | "sending" | "ok" | "error";
@@ -138,33 +139,34 @@ export default function Contact() {
         <div className="container">
           <div className="contact-grid">
             <div className="contact-card">
-              <p style={{ marginTop: 0 }}>
-                <strong>Contact</strong>
+              <p className="contact-card__name" style={{ marginTop: 0 }}>
+                Rick Beedle
               </p>
-              <p>Rick Beedle</p>
-              <p>Firefighter &amp; Inventor</p>
-              <p>
+              <p className="contact-card__role">Firefighter &amp; Inventor</p>
+
+              <p className="contact-card__meta contact-card__phone-line">
+                <a href="tel:+14807103954">
+                  <FaPhone
+                    aria-hidden
+                    className="contact-card__phone-icon"
+                  />
+                  480-710-3954
+                </a>
+              </p>
+
+              <p className="contact-card__meta contact-card__email-line">
                 <a href="mailto:rbeedle@ems-innovations.com">
+                  <FaEnvelope
+                    aria-hidden
+                    className="contact-card__email-icon"
+                  />
                   rbeedle@ems-innovations.com
                 </a>
               </p>
-              <p style={{ marginTop: "1rem" }}>
-                <strong>Phone</strong>
-              </p>
-              <p>
-                <a href="tel:+14807103954">480-710-3954</a>
-              </p>
-              <p style={{ marginTop: "1rem" }}>
-                <strong>Website</strong>
-              </p>
-              <p>
-                <a
-                  href="https://www.ems-innovations.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  www.ems-innovations.com
-                </a>
+
+              <p className="contact-card__hours">Firefighter Hours</p>
+              <p className="contact-card__location">
+                Based in Phoenix, AZ MST
               </p>
             </div>
             <div className="contact-card">

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import {
   AwardsSection,
+  MechanicalAdvantageVideoSection,
   OrgCaseSection,
   SpecsSection,
   StepsSection,
@@ -68,7 +69,37 @@ export default function Home() {
       <HomeTikTokBlock />
 
       <SpecsSection />
+      <MechanicalAdvantageVideoSection />
       <OrgCaseSection />
+
+      <section className="about-cta about-cta--gold">
+        <div className="container about-cta__inner">
+          <p className="about-cta__lead">
+            The cost of{" "}
+            <img
+              className="about-cta__logo-inline"
+              src={asset("riser-logo.jpg")}
+              alt="The Riser"
+              width={200}
+              height={56}
+              loading="lazy"
+              decoding="async"
+            />{" "}
+            will be recouped with the prevention of a single injury of just one
+            employee and will continue to save the organization money exponentially
+            over its lifespan.
+          </p>
+          <p className="about-cta__sub">
+            Learn more about how The Riser can benefit your operations.
+          </p>
+          <Link className="btn btn--primary" to="/about">
+            About the Riser
+          </Link>
+          <Link className="btn btn--secondary" to="/contact">
+            Contact Us
+          </Link>
+        </div>
+      </section>
     </>
   );
 }

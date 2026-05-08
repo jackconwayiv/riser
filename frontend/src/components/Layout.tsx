@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
+import {
+  EMS_WORLD_AWARD_URL,
+  FIREHOUSE_AWARD_URL,
+} from "../content/riserContent.ts";
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
   "nav-link" + (isActive ? " nav-link--active" : "");
@@ -139,11 +143,47 @@ export default function Layout() {
               Lift Smarter. Not Harder.
             </p>
           </div>
-          <nav className="site-footer__col footer-nav" aria-label="Footer">
-            <NavLink to="/product">Product</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
-          </nav>
+          <div className="site-footer__col">
+            <nav className="footer-nav" aria-label="Footer">
+              <NavLink to="/product">Product</NavLink>
+              <NavLink to="/about">About</NavLink>
+              <NavLink to="/contact">Contact</NavLink>
+            </nav>
+            <div className="site-footer__awards" aria-label="Recognition awards">
+              <a
+                href={EMS_WORLD_AWARD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="site-footer__award-link image-link"
+              >
+                <img
+                  src={asset("inno-winner.jpg")}
+                  alt="2025 EMS World Innovation Awards winner badge"
+                  width={140}
+                  height={70}
+                  className="site-footer__award-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <a
+                href={FIREHOUSE_AWARD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="site-footer__award-link image-link"
+              >
+                <img
+                  src={asset("firehouse-2025.png")}
+                  alt="Firehouse Innovation Awards 2025 winner"
+                  width={140}
+                  height={70}
+                  className="site-footer__award-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+            </div>
+          </div>
           <div className="site-footer__col site-footer__col--contact">
             <NavLink
               to="/about"
