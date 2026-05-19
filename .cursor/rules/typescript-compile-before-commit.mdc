@@ -1,0 +1,45 @@
+---
+description: Run TypeScript compile check before committing frontend changes
+alwaysApply: true
+---
+
+# TypeScript must compile before commit
+
+Before creating any git commit that includes frontend or TypeScript changes, **verify the project compiles**. Do not commit if TypeScript reports errors.
+
+## Required check
+
+From the repo root:
+
+```bash
+npm run build --prefix frontend
+```
+
+Or typecheck only (faster, no Vite bundle):
+
+```bash
+cd frontend && npx tsc -b
+```
+
+From `frontend/`:
+
+```bash
+npm run build
+# or: npx tsc -b
+```
+
+## When to run
+
+- Before every commit that touches `frontend/src/**`, `frontend/tsconfig*.json`, or related TS config
+- After finishing a task that edits `.ts` or `.tsx` files, especially when the user asks you to commit
+- If a commit fails hooks, fix compile errors and re-run the check before retrying
+
+## On failure
+
+1. Read the `tsc` output and fix all reported errors
+2. Re-run the compile check until it exits with code 0
+3. Only then stage and commit
+
+## Scope
+
+This repo’s TypeScript lives under `frontend/`. There is no separate root TS project; use the commands above.

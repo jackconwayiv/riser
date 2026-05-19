@@ -48,18 +48,20 @@ export default function About() {
         </section>
         <AwardsSection />
         <OrgCaseSection />
-        <section className="about-cta about-cta--white">
+        <section className="about-cta">
           <div className="container about-cta__inner">
-            <p className="about-cta__lead">
+            <p className="about-cta__sub">
               See how The Riser fits your operation, then connect with our team to
               plan the right next step.
             </p>
-            <Link className="btn btn--primary" to="/product">
-              Product Details
-            </Link>
-            <Link className="btn btn--secondary" to="/contact">
-              Get in Touch
-            </Link>
+            <div className="about-cta__actions">
+              <Link className="btn btn--primary" to="/product">
+                Product Details
+              </Link>
+              <Link className="btn btn--ghost" to="/contact">
+                Get in Touch
+              </Link>
+            </div>
           </div>
         </section>
       </div>

@@ -72,7 +72,7 @@ export default function Home() {
       <MechanicalAdvantageVideoSection />
       <OrgCaseSection />
 
-      <section className="about-cta about-cta--gold">
+      <section className="about-cta">
         <div className="container about-cta__inner">
           <p className="about-cta__lead">
             The cost of{" "}
@@ -92,12 +92,14 @@ export default function Home() {
           <p className="about-cta__sub">
             Learn more about how The Riser can benefit your operations.
           </p>
-          <Link className="btn btn--primary" to="/about">
-            About the Riser
-          </Link>
-          <Link className="btn btn--secondary" to="/contact">
-            Contact Us
-          </Link>
+          <div className="about-cta__actions">
+            <Link className="btn btn--primary" to="/about">
+              About the Riser
+            </Link>
+            <Link className="btn btn--ghost" to="/contact">
+              Contact Us
+            </Link>
+          </div>
         </div>
       </section>
     </>

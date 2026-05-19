@@ -287,7 +287,7 @@ export function OrgCaseSection() {
               return (
                 <article
                   key={item.id}
-                  className={`home-stat-card home-stat-card--${item.accent}${
+                  className={`home-stat-card${
                     item.sourceUrl ? " home-stat-card--linked" : ""
                   }`}
                   role="listitem"

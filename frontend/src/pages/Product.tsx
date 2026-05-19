@@ -28,16 +28,18 @@ export default function Product() {
         <SpecsSection />
         <section className="about-cta">
           <div className="container about-cta__inner">
-            <p className="about-cta__lead">
+            <p className="about-cta__sub">
               Learn the story and mission behind The Riser, then reach out to
               discuss the right fit for your team.
             </p>
-            <Link className="btn btn--secondary" to="/about">
-              Who We Are
-            </Link>
-            <Link className="btn btn--ghost" to="/contact">
-              Get in Touch
-            </Link>
+            <div className="about-cta__actions">
+              <Link className="btn btn--primary" to="/about">
+                Who We Are
+              </Link>
+              <Link className="btn btn--ghost" to="/contact">
+                Get in Touch
+              </Link>
+            </div>
           </div>
         </section>
       </div>
