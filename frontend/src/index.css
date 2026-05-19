@@ -745,6 +745,13 @@ a:hover {
   color: var(--text-on-dark);
 }
 
+.hero,
+.page-hero,
+.home-position,
+.home-mechanical-promo {
+  border-bottom: 3px solid var(--brand-red);
+}
+
 .page-crumb {
   display: inline-flex;
   align-items: center;
@@ -845,13 +852,60 @@ a:hover {
 
 .about-story__inner {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1fr minmax(220px, 320px);
   gap: clamp(24px, 4vw, 42px);
+  align-items: start;
+}
+
+.about-story__content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 40px);
+}
+
+.about-story__portrait {
+  margin: 0;
+  text-align: center;
+}
+
+.about-story__portrait-link {
+  display: block;
+  max-width: 320px;
+  margin-inline: auto;
+}
+
+.about-story__portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.about-story__portrait-caption {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.about-story__portrait-name {
+  font-weight: 700;
+  color: var(--brand-navy);
+}
+
+.about-story__portrait-role {
+  font-size: 0.92rem;
+  color: var(--text-muted);
 }
 
 @media (max-width: 900px) {
   .about-story__inner {
     grid-template-columns: 1fr;
+  }
+
+  .about-story__portrait {
+    order: -1;
   }
 }
 
@@ -979,6 +1033,40 @@ a:hover {
   border: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: var(--shadow-sm);
+}
+
+.contact-card__profile {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(16px, 3vw, 24px);
+  align-items: start;
+}
+
+.contact-card__portrait {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.contact-card__portrait-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.contact-card__portrait-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-card__details {
+  min-width: 0;
 }
 
 .contact-card h2 {
@@ -1262,10 +1350,6 @@ a:hover {
   font-weight: 600;
 }
 
-.home-value--border {
-  border-top: 3px solid var(--brand-red);
-}
-
 .home-value__lead {
   margin: 0 auto;
   max-width: 48rem;
@@ -1511,13 +1595,7 @@ a:hover {
 
 .home-org-case {
   --org-case-logo-width: 120px;
-  background: linear-gradient(
-    180deg,
-    var(--surface-warm-start) 0%,
-    rgba(255, 248, 247, 0.98) 22%,
-    rgba(var(--brand-red-rgb), 0.42) 72%,
-    var(--brand-red) 100%
-  );
+  background: var(--surface-muted);
 }
 
 .home-org-case__intro {

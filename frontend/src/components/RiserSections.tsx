@@ -68,7 +68,7 @@ export function AwardsSection() {
 
 export function ValueSection() {
   return (
-    <section className="home-value section section--alt home-value--border">
+    <section className="home-value section section--alt">
       <div className="container">
         <h2 className="section__title home-value__title">Why The Riser</h2>
         <div className="home-value__layout">
@@ -221,7 +221,7 @@ export function MechanicalAdvantageVideoSection() {
 
 export function OrgCaseSection() {
   return (
-    <section className="home-org-case section section--alt">
+    <section className="home-org-case section">
       <div className="container">
         <header className="home-org-case__intro">
           <h2 className="home-org-case__title">

@@ -6,7 +6,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.mail import EmailMessage
 from django.core.validators import validate_email
-from django.http import HttpResponse
+from django.http import FileResponse, Http404, HttpResponse
 from django.views.decorators.http import require_GET
 from rest_framework import status
 from rest_framework.decorators import api_view, throttle_classes
@@ -95,14 +95,44 @@ def contact(request):
     return Response(status=status.HTTP_202_ACCEPTED)
 
 
+def _frontend_build_file(name: str) -> Path:
+    return Path(settings.BASE_DIR) / "frontend_build" / name
+
+
+@require_GET
+def robots_txt(request):
+    path = _frontend_build_file("robots.txt")
+    if not path.is_file():
+        raise Http404
+    return FileResponse(path.open("rb"), content_type="text/plain; charset=utf-8")
+
+
+@require_GET
+def sitemap_xml(request):
+    path = _frontend_build_file("sitemap.xml")
+    if not path.is_file():
+        raise Http404
+    return FileResponse(path.open("rb"), content_type="application/xml; charset=utf-8")
+
+
+ROUTE_HTML = {
+    "/": "index.html",
+    "/product": "product.html",
+    "/about": "about.html",
+    "/contact": "contact.html",
+}
+
+
 @require_GET
 def frontend(request):
-    index_file = Path(settings.BASE_DIR) / "frontend_build" / "index.html"
+    path = request.path.rstrip("/") or "/"
+    filename = ROUTE_HTML.get(path, "index.html")
+    html_file = _frontend_build_file(filename)
 
-    if not index_file.exists():
+    if not html_file.exists():
         return HttpResponse(
             "Frontend build not found. Run `npm run build` in /frontend.",
             status=501,
         )
 
-    return HttpResponse(index_file.read_text(encoding="utf-8"))
+    return HttpResponse(html_file.read_text(encoding="utf-8"))

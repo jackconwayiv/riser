@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import JsonLd from "../components/JsonLd.tsx";
+import { productJsonLd } from "../content/structuredData.ts";
 import {
   AwardsSection,
   MechanicalAdvantageVideoSection,
@@ -14,6 +16,7 @@ const asset = (path: string) => import.meta.env.BASE_URL + path;
 export default function Home() {
   return (
     <>
+      <JsonLd data={productJsonLd()} />
       <section className="hero" aria-labelledby="hero-heading">
         <div
           className="hero__photo"

@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import JsonLd from "../components/JsonLd.tsx";
+import { breadcrumbJsonLd } from "../content/structuredData.ts";
+
+const asset = (path: string) => import.meta.env.BASE_URL + path;
 
 type Status = "idle" | "sending" | "ok" | "error";
 type Errors = Partial<Record<"name" | "email" | "message" | "form", string>>;
@@ -118,6 +122,12 @@ export default function Contact() {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "The Riser", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
       <div className="page-hero">
         <div className="container">
           <nav className="page-crumb" aria-label="Breadcrumb">
@@ -139,35 +149,54 @@ export default function Contact() {
         <div className="container">
           <div className="contact-grid">
             <div className="contact-card">
-              <p className="contact-card__name" style={{ marginTop: 0 }}>
-                Rick Beedle
-              </p>
-              <p className="contact-card__role">Firefighter &amp; Inventor</p>
+              <div className="contact-card__profile">
+                <figure className="contact-card__portrait">
+                  <Link
+                    to="/about"
+                    className="contact-card__portrait-link image-link"
+                    aria-label="Learn about Rick Beedle on the About page"
+                  >
+                    <img
+                      src={asset("rick-beedle-the-riser-2.png")}
+                      alt="Rick Beedle, creator of The Riser"
+                      width={361}
+                      height={515}
+                      loading="lazy"
+                      decoding="async"
+                      className="contact-card__portrait-img"
+                    />
+                  </Link>
+                </figure>
+                <div className="contact-card__details">
+                  <p className="contact-card__name">Rick Beedle</p>
+                  <p className="contact-card__role">Firefighter &amp; Inventor</p>
 
-              <p className="contact-card__meta contact-card__phone-line">
-                <a href="tel:+14807103954">
-                  <FaPhone
-                    aria-hidden
-                    className="contact-card__phone-icon"
-                  />
-                  480-710-3954
-                </a>
-              </p>
+                  <p className="contact-card__meta contact-card__phone-line">
+                    <a href="tel:+14807103954">
+                      <FaPhone
+                        aria-hidden
+                        className="contact-card__phone-icon"
+                      />
+                      480-710-3954
+                    </a>
+                  </p>
 
-              <p className="contact-card__meta contact-card__email-line">
-                <a href="mailto:rick@the-riser.org">
-                  <FaEnvelope
-                    aria-hidden
-                    className="contact-card__email-icon"
-                  />
-                  rick@the-riser.org
-                </a>
-              </p>
+                  <p className="contact-card__meta contact-card__email-line">
+                    <a href="mailto:rick@the-riser.org">
+                      <FaEnvelope
+                        aria-hidden
+                        className="contact-card__email-icon"
+                      />
+                      rick@the-riser.org
+                    </a>
+                  </p>
 
-              <p className="contact-card__hours">Firefighter Hours</p>
-              <p className="contact-card__location">
-                Based in Phoenix, AZ MST
-              </p>
+                  <p className="contact-card__hours">Firefighter Hours</p>
+                  <p className="contact-card__location">
+                    Based in Phoenix, AZ MST
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="contact-card">
               <h2>Send a message</h2>

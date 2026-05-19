@@ -1,9 +1,23 @@
 import { Link } from "react-router-dom";
+import JsonLd from "../components/JsonLd.tsx";
+import {
+  breadcrumbJsonLd,
+  productJsonLd,
+} from "../content/structuredData.ts";
 import { SpecsSection, StepsSection, ValueSection } from "../components/RiserSections.tsx";
 
 export default function Product() {
   return (
     <>
+      <JsonLd
+        data={[
+          productJsonLd(),
+          breadcrumbJsonLd([
+            { name: "The Riser", path: "/" },
+            { name: "Product", path: "/product" },
+          ]),
+        ]}
+      />
       <div className="page-hero">
         <div className="container">
           <nav className="page-crumb" aria-label="Breadcrumb">

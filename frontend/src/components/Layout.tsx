@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
+import PageHead from "./PageHead.tsx";
+import JsonLd from "./JsonLd.tsx";
+import { getSeoForPath } from "../content/seo.ts";
+import { organizationJsonLd } from "../content/structuredData.ts";
 import {
   EMS_WORLD_AWARD_URL,
   FIREHOUSE_AWARD_URL,
@@ -15,6 +19,7 @@ const asset = (path: string) => import.meta.env.BASE_URL + path;
 export default function Layout() {
   const year = new Date().getFullYear();
   const location = useLocation();
+  const seo = getSeoForPath(location.pathname);
   const [navOpen, setNavOpen] = useState(false);
   const [narrowNav, setNarrowNav] = useState(
     () => typeof window !== "undefined" && window.matchMedia(NAV_MQ).matches,
@@ -55,6 +60,8 @@ export default function Layout() {
 
   return (
     <>
+      <PageHead {...seo} />
+      <JsonLd data={organizationJsonLd()} />
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
