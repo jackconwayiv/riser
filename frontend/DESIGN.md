@@ -1,6 +1,14 @@
-# Riser design vocabulary
+# RISER design vocabulary
 
 Single source of truth for UI tokens: [`src/index.css`](src/index.css) (`:root`).
+
+## Branding
+
+**Product name:** always **The RISER** — capital *The*, then *RISER* in all caps. Not “The Riser”, “the RISER”, or “RISER” alone in prose unless quoting a third party.
+
+- Code: [`src/content/brand.ts`](src/content/brand.ts) exports `PRODUCT_NAME` (`"The RISER"`). In UI, wrap visible mentions with [`<ProductName />`](src/components/ProductName.tsx) or `textWithProductName()` for plain strings.
+- Visible mentions are **bold** (`.product-name` / `<strong>`). SEO titles, `alt` text, and JSON-LD stay plain text.
+- Logo image filenames (e.g. `RISER-logo-transparent.png`) are assets only; visible text should still use `PRODUCT_NAME`.
 
 ## Surfaces (backgrounds)
 
@@ -45,13 +53,31 @@ Single source of truth for UI tokens: [`src/index.css`](src/index.css) (`:root`)
 
 ## Buttons
 
-Base: `.btn` + modifier.
+Base: `.btn` + modifier. Colors come from `--btn-*` tokens in `:root` ([`src/index.css`](src/index.css)).
 
-| Modifier | On light / white | On navy (hero) | On red CTA (`.about-cta`) |
-|----------|------------------|----------------|---------------------------|
-| `--primary` | Red fill | Red fill | **White fill** (scoped override) |
-| `--secondary` | White card style | — | — |
-| `--ghost` | — | Glass + gold border | Glass + gold border |
+### Usage rules
+
+- **`btn--primary`** — default everywhere on light/canvas/white/gray bands (red fill, white text).
+- **`btn--secondary`** — only on light sections (`.section--alt`, `.page-body`); subtle gray fill, not ghost.
+- **`btn--ghost`** — only on dark surfaces (`.hero`, `.about-cta`); do not use on white or gray bands.
+
+### Per-surface matrix
+
+| Surface | Background token | Primary | Secondary | Ghost |
+|---------|------------------|---------|-----------|-------|
+| Canvas / page body | `--surface-canvas` | Red + white text | Subtle gray fill + navy text | Do not use |
+| White band | `--surface-raised` (`.section--alt`) | Red + white text | Subtle gray fill + navy text | Do not use |
+| Gray band | `--surface-muted` | Red + white text (if added) | Subtle gray fill | Do not use |
+| Navy hero | `--surface-navy` + scrim | Red + white text | — | Frosted glass + gold border |
+| Red CTA | `--surface-brand` (`.about-cta`) | **White fill + navy text** (scoped) | — | Dark glass + white border (scoped) |
+
+### Token reference
+
+| Token | Role |
+|-------|------|
+| `--btn-primary-bg` / `--btn-primary-fg` | Default primary |
+| `--btn-secondary-bg` / `--btn-secondary-border` | Light-surface secondary |
+| `--btn-ghost-bg` / `--btn-ghost-border` | Dark-surface ghost |
 
 **Bottom CTA pattern (all marketing pages):**
 

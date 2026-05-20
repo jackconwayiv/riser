@@ -1,3 +1,4 @@
+import { PRODUCT_NAME } from "./brand.ts";
 import {
   EMS_WORLD_AWARD_URL,
   FIREHOUSE_AWARD_URL,
@@ -29,7 +30,7 @@ export function productJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "The Riser",
+    name: PRODUCT_NAME,
     description:
       "Patient lifting device for EMS and fire crews with mechanical advantage, compact ambulance storage, and award-winning field design.",
     brand: {

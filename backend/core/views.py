@@ -75,7 +75,7 @@ def contact(request):
         return Response({"errors": errors}, status=status.HTTP_400_BAD_REQUEST)
 
     body = (
-        "A new message was submitted via The Riser contact form.\n\n"
+        "A new message was submitted via The RISER contact form.\n\n"
         f"Name:  {name}\n"
         f"Email: {email}\n\n"
         "------------------------------------------------------------\n"
@@ -85,7 +85,7 @@ def contact(request):
     )
 
     EmailMessage(
-        subject=f"[The Riser] New contact form submission from {name}",
+        subject=f"[The RISER] New contact form submission from {name}",
         body=body,
         from_email=settings.DEFAULT_FROM_EMAIL,
         to=[settings.CONTACT_RECIPIENT_EMAIL],
@@ -118,6 +118,7 @@ def sitemap_xml(request):
 ROUTE_HTML = {
     "/": "index.html",
     "/product": "product.html",
+    "/data-driven": "data-driven.html",
     "/about": "about.html",
     "/contact": "contact.html",
 }

@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import { ProductName, textWithProductName } from "./ProductName.tsx";
+import { PRODUCT_NAME } from "../content/brand.ts";
 import {
+  EMS_WORLD_AWARD_QUOTE,
+  EMS_WORLD_AWARD_QUOTE_ATTRIBUTION,
   EMS_WORLD_AWARD_URL,
+  FIREHOUSE_AWARD_QUOTE,
+  FIREHOUSE_AWARD_QUOTE_ATTRIBUTION,
   FIREHOUSE_AWARD_URL,
   ORG_STATS,
   RISER_SPECS,
@@ -19,6 +25,9 @@ export function AwardsSection() {
       <div className="container">
         <div className="home-awards__grid">
           <figure className="home-awards__figure">
+            <figcaption className="home-awards__caption">
+              2025 EMS World Innovation Awards Winner
+            </figcaption>
             <a
               href={EMS_WORLD_AWARD_URL}
               target="_blank"
@@ -35,11 +44,17 @@ export function AwardsSection() {
                 className="home-awards__img"
               />
             </a>
-            <figcaption className="home-awards__caption">
-              2025 EMS World Innovation Awards - winner
-            </figcaption>
+            <blockquote className="home-awards__quote" cite={EMS_WORLD_AWARD_URL}>
+              <p>{textWithProductName(EMS_WORLD_AWARD_QUOTE)}</p>
+              <footer className="home-awards__quote-cite">
+                —{EMS_WORLD_AWARD_QUOTE_ATTRIBUTION}
+              </footer>
+            </blockquote>
           </figure>
           <figure className="home-awards__figure">
+            <figcaption className="home-awards__caption">
+              Firehouse Innovation Awards 2025 Winner
+            </figcaption>
             <a
               href={FIREHOUSE_AWARD_URL}
               target="_blank"
@@ -56,9 +71,12 @@ export function AwardsSection() {
                 className="home-awards__img"
               />
             </a>
-            <figcaption className="home-awards__caption">
-              Firehouse Innovation Awards 2025 - winner
-            </figcaption>
+            <blockquote className="home-awards__quote" cite={FIREHOUSE_AWARD_URL}>
+              <p>{textWithProductName(FIREHOUSE_AWARD_QUOTE)}</p>
+              <footer className="home-awards__quote-cite">
+                —{FIREHOUSE_AWARD_QUOTE_ATTRIBUTION}
+              </footer>
+            </blockquote>
           </figure>
         </div>
       </div>
@@ -70,12 +88,14 @@ export function ValueSection() {
   return (
     <section className="home-value section section--alt">
       <div className="container">
-        <h2 className="section__title home-value__title">Why The Riser</h2>
+        <h2 className="section__title home-value__title">
+          Why <ProductName />?
+        </h2>
         <div className="home-value__layout">
           <figure className="home-value__media">
             <img
               src={asset("RISER-action-side.jpg")}
-              alt="Side view of The Riser in active use"
+              alt="Side view of The RISER in active use"
               width={320}
               height={240}
               loading="lazy"
@@ -95,7 +115,7 @@ export function ValueSection() {
           <figure className="home-value__media">
             <img
               src={asset("RISER-action-angle.jpg")}
-              alt="Angled view of The Riser in active use"
+              alt="Angled view of The RISER in active use"
               width={320}
               height={240}
               loading="lazy"
@@ -121,7 +141,9 @@ export function StepsSection() {
   return (
     <section className="home-steps section">
       <div className="container">
-        <h2 className="home-steps__title">How it works</h2>
+        <h2 className="home-steps__title">
+          How <ProductName /> Works:
+        </h2>
         <ol className="home-steps__grid">
           {RISER_STEPS.map((step, idx) => (
             <li key={step} className="home-step">
@@ -144,12 +166,12 @@ export function SpecsSection() {
       className="home-specs section section--alt"
     >
       <div className="container">
-        <h2 className="section__title">Specifications and features</h2>
+        <h2 className="section__title">Specifications and Features:</h2>
         <div className="home-specs__layout">
           <div className="home-specs__media home-specs__media--left">
             <img
               src={asset("RISER Ambulance Storage.jpg")}
-              alt="The Riser stored vertically in an ambulance backboard compartment next to a yellow backboard"
+              alt="The RISER stored vertically in an ambulance backboard compartment next to a yellow backboard"
               width={400}
               height={500}
               loading="lazy"
@@ -168,7 +190,7 @@ export function SpecsSection() {
           <div className="home-specs__media home-specs__media--right">
             <img
               src={asset("side-by-side.jpg")}
-              alt="The Riser shown side by side in deployed and compact profile views"
+              alt="The RISER shown side by side in deployed and compact profile views"
               width={400}
               height={500}
               loading="lazy"
@@ -196,7 +218,7 @@ export function MechanicalAdvantageVideoSection() {
           id="mechanical-advantage-video-heading"
           className="home-mechanical-promo__title"
         >
-          The Riser Provides a 6:1 Mechanical Advantage
+          <ProductName /> Gives a Pair of Operators a 6:1 Mechanical Advantage
         </h2>
         <div className="home-mechanical-promo__frame">
           <video
@@ -205,7 +227,7 @@ export function MechanicalAdvantageVideoSection() {
             controls
             playsInline
             preload="metadata"
-            aria-label="Promotional video: The Riser 6:1 mechanical advantage (EMS World)"
+            aria-label={`Promotional video: ${PRODUCT_NAME} 6:1 mechanical advantage (EMS World)`}
           >
             Your browser does not support embedded video.{" "}
             <a className="home-mechanical-promo__fallback" href={videoSrc}>
@@ -225,13 +247,13 @@ export function OrgCaseSection() {
       <div className="container">
         <header className="home-org-case__intro">
           <h2 className="home-org-case__title">
-            Why should my organization buy The Riser?
+            Why should my organization buy <ProductName />?
           </h2>
         </header>
 
         <div className="home-org-case__endorse">
           <a
-            className="home-org-case__endorse-link"
+            className="home-org-case__endorse-link image-link"
             href={USFA_ERGONOMICS_WELLNESS_PDF_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -294,7 +316,7 @@ export function OrgCaseSection() {
                 >
                   {item.sourceUrl ? (
                     <a
-                      className="home-stat-card__link"
+                      className="home-stat-card__link linked-card"
                       href={item.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"

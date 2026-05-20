@@ -128,5 +128,15 @@ export const RISER_SPECS = [
 
 export const EMS_WORLD_AWARD_URL =
   "https://www.hmpgloballearningnetwork.com/site/emsworld/feature/2025-innovation-awards-winners";
+
+export const EMS_WORLD_AWARD_QUOTE =
+  "What sets the RISER apart is how naturally it integrates into existing operations… a device that makes one of the most injury-prone tasks markedly safer and more efficient.";
+
+export const EMS_WORLD_AWARD_QUOTE_ATTRIBUTION = "EMS World";
 export const FIREHOUSE_AWARD_URL =
   "https://www.firehouse.com/technology/article/55318362/firehouse-magazine-innovation-awards";
+
+export const FIREHOUSE_AWARD_QUOTE =
+  "The RISER is a thoughtfully designed, highly functional tool that supports safer patient handling while reducing the risk of injury to fire and EMS professionals… a solid investment in firefighter and EMS safety.";
+
+export const FIREHOUSE_AWARD_QUOTE_ATTRIBUTION = "Firehouse Magazine";

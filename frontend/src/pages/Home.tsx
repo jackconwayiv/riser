@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import JsonLd from "../components/JsonLd.tsx";
+import { ProductName } from "../components/ProductName.tsx";
+import { PRODUCT_NAME } from "../content/brand.ts";
 import { productJsonLd } from "../content/structuredData.ts";
 import {
   AwardsSection,
@@ -28,16 +30,19 @@ export default function Home() {
           style={{ backgroundImage: `url(${asset("hero.svg")})` }}
           aria-hidden
         />
-        <div className="hero__scrim" aria-hidden />
         <div className="hero__inner">
-          <span className="hero__eyebrow">EMS Innovations</span>
+          <p className="hero__lead">
+            A new type of patient lifting device created by a{" "}
+            <strong className="hero__emphasis">firefighter</strong> specifically
+            for <strong className="hero__emphasis">EMS</strong> use
+          </p>
           <h1 id="hero-heading" className="hero__title">
             <img
               className="hero__logo"
               src={asset("riser-logo.jpg")}
-              alt="The Riser"
-              width={640}
-              height={180}
+              alt={PRODUCT_NAME}
+              width={1242}
+              height={620}
               fetchPriority="high"
               decoding="async"
             />
@@ -59,9 +64,10 @@ export default function Home() {
       <section className="home-position section">
         <div className="container home-position__inner">
           <p className="home-position__text">
-            A new type of patient lifting device created by a{" "}
-            <strong className="home-emphasis">firefighter</strong> specifically
-            for <strong className="home-emphasis">EMS</strong> use.
+            Not a stair chair.
+            <br />
+            <ProductName /> is a <strong className="home-emphasis">new</strong> type
+            of patient lifting device.
           </p>
         </div>
       </section>
@@ -81,8 +87,8 @@ export default function Home() {
             The cost of{" "}
             <img
               className="about-cta__logo-inline"
-              src={asset("riser-logo.jpg")}
-              alt="The Riser"
+              src={asset("RISER-logo-transparent.png")}
+              alt={PRODUCT_NAME}
               width={200}
               height={56}
               loading="lazy"
@@ -93,11 +99,11 @@ export default function Home() {
             over its lifespan.
           </p>
           <p className="about-cta__sub">
-            Learn more about how The Riser can benefit your operations.
+            Learn more about how <ProductName /> can benefit your operations.
           </p>
           <div className="about-cta__actions">
             <Link className="btn btn--primary" to="/about">
-              About the Riser
+              About the <ProductName />
             </Link>
             <Link className="btn btn--ghost" to="/contact">
               Contact Us

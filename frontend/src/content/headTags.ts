@@ -1,3 +1,4 @@
+import { PRODUCT_NAME } from "./brand.ts";
 import {
   canonicalUrl,
   getSiteUrl,
@@ -9,7 +10,7 @@ export type MetaSpec =
   | { attr: "name"; key: string; content: string }
   | { attr: "property"; key: string; content: string };
 
-const SITE_NAME = "The Riser";
+const SITE_NAME = PRODUCT_NAME;
 const OG_LOCALE = "en_US";
 const DEFAULT_OG_IMAGE = "riser-hero.jpg";
 

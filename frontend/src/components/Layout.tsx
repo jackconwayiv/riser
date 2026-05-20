@@ -5,6 +5,7 @@ import PageHead from "./PageHead.tsx";
 import JsonLd from "./JsonLd.tsx";
 import { getSeoForPath } from "../content/seo.ts";
 import { organizationJsonLd } from "../content/structuredData.ts";
+import { PRODUCT_NAME } from "../content/brand.ts";
 import {
   EMS_WORLD_AWARD_URL,
   FIREHOUSE_AWARD_URL,
@@ -88,10 +89,10 @@ export default function Layout() {
       <header className="site-header">
         <NavLink className="site-logo" to="/" end>
           <img
-            src={asset("riser-logo.jpg")}
-            alt="The Riser"
-            width={220}
-            height={62}
+            src={asset("RISER-logo-transparent.png")}
+            alt={PRODUCT_NAME}
+            width={165}
+            height={47}
             className="site-logo__img"
           />
         </NavLink>
@@ -123,6 +124,9 @@ export default function Layout() {
           <NavLink className={navClass} to="/product" onClick={closeNav}>
             Product
           </NavLink>
+          <NavLink className={navClass} to="/data-driven" onClick={closeNav}>
+            Data-Driven
+          </NavLink>
           <NavLink className={navClass} to="/about" onClick={closeNav}>
             About
           </NavLink>
@@ -137,13 +141,13 @@ export default function Layout() {
       <footer className="site-footer">
         <div className="site-footer__inner">
           <div className="site-footer__col site-footer__col--brand">
-            <NavLink to="/" className="site-footer__logo-link image-link">
+            <NavLink to="/" end className="site-footer__brand-logo image-link">
               <img
                 src={asset("riser-logo.jpg")}
-                alt="The Riser"
+                alt={PRODUCT_NAME}
                 width={220}
                 height={62}
-                className="site-footer__logo"
+                className="site-footer__brand-logo-img"
               />
             </NavLink>
             <p className="site-footer__tagline">
@@ -153,6 +157,7 @@ export default function Layout() {
           <div className="site-footer__col">
             <nav className="footer-nav" aria-label="Footer">
               <NavLink to="/product">Product</NavLink>
+              <NavLink to="/data-driven">Data-Driven</NavLink>
               <NavLink to="/about">About</NavLink>
               <NavLink to="/contact">Contact</NavLink>
             </nav>

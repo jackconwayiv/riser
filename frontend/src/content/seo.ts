@@ -37,30 +37,37 @@ function resolveBaseUrl(): string {
 export const ROUTE_SEO: Record<string, PageSeo> = {
   "/": {
     path: "/",
-    title: "The Riser — EMS & Fire Patient Lifting Device",
+    title: "The RISER — EMS & Fire Patient Lifting Device",
     description:
-      "The Riser is a patient lifting device built by a firefighter for EMS and fire crews. Winner of 2025 EMS World Innovation & Firehouse Magazine Innovation awards.",
+      "The RISER is a patient lifting device built by a firefighter for EMS and fire crews. Winner of 2025 EMS World Innovation & Firehouse Magazine Innovation awards.",
     ogImage: DEFAULT_OG_IMAGE,
   },
   "/product": {
     path: "/product",
-    title: "Product specs & features | The Riser",
+    title: "Product specs & features | The RISER",
     description:
-      "Explore The Riser: mechanical advantage lifting, ambulance storage, specifications, and step-by-step usage for EMS and fire patient handling.",
+      "Explore The RISER: mechanical advantage lifting, ambulance storage, specifications, and step-by-step usage for EMS and fire patient handling.",
     ogImage: "RISER-action-side.jpg",
+  },
+  "/data-driven": {
+    path: "/data-driven",
+    title: "Data-Driven | The RISER",
+    description:
+      "Published data on EMS lifting injuries, ergonomics, and organizational ROI. Sources from NIH, NAEMT, NIOSH, and the U.S. Fire Administration.",
+    ogImage: DEFAULT_OG_IMAGE,
   },
   "/about": {
     path: "/about",
-    title: "About EMS Innovations | The Riser",
+    title: "About EMS Innovations | The RISER",
     description:
-      "EMS Innovations created The Riser to reduce lifting injuries and improve patient movement for EMS and fire responders. Learn our story and mission.",
+      "Firefighter-founded EMS Innovations created The RISER after years in the field and a colleague's career-ending back injury. Meet inventor Rick Beedle and our story.",
     ogImage: DEFAULT_OG_IMAGE,
   },
   "/contact": {
     path: "/contact",
-    title: "Contact | The Riser",
+    title: "Contact | The RISER",
     description:
-      "Contact Rick Beedle and the EMS Innovations team about The Riser. Sales, support, and partnerships for EMS and fire departments.",
+      "Contact Rick Beedle and the EMS Innovations team about The RISER. Sales, support, and partnerships for EMS and fire departments.",
     ogImage: DEFAULT_OG_IMAGE,
   },
 };
@@ -103,6 +110,7 @@ export const PRERENDER_ROUTES = Object.keys(ROUTE_SEO);
 export const ROUTE_HTML_FILES: Record<string, string> = {
   "/": "index.html",
   "/product": "product.html",
+  "/data-driven": "data-driven.html",
   "/about": "about.html",
   "/contact": "contact.html",
 };

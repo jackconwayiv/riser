@@ -1,23 +1,17 @@
 import { Link } from "react-router-dom";
 import JsonLd from "../components/JsonLd.tsx";
 import { ProductName } from "../components/ProductName.tsx";
-import {
-  breadcrumbJsonLd,
-  productJsonLd,
-} from "../content/structuredData.ts";
-import { SpecsSection, StepsSection, ValueSection } from "../components/RiserSections.tsx";
+import { breadcrumbJsonLd } from "../content/structuredData.ts";
+import { OrgCaseSection } from "../components/RiserSections.tsx";
 
-export default function Product() {
+export default function DataDriven() {
   return (
     <>
       <JsonLd
-        data={[
-          productJsonLd(),
-          breadcrumbJsonLd([
-            { name: "The RISER", path: "/" },
-            { name: "Product", path: "/product" },
-          ]),
-        ]}
+        data={breadcrumbJsonLd([
+          { name: "The RISER", path: "/" },
+          { name: "Data-Driven", path: "/data-driven" },
+        ])}
       />
       <div className="page-hero">
         <div className="container">
@@ -28,30 +22,26 @@ export default function Product() {
             <span className="page-crumb__sep" aria-hidden>
               &gt;
             </span>
-            <span className="page-crumb__current">Product</span>
+            <span className="page-crumb__current">Data-Driven</span>
           </nav>
-          <h1 className="page-hero__title">
-            What is <ProductName />?
-          </h1>
+          <h1 className="page-hero__title">Data-Driven</h1>
           <p className="page-hero__lead">
-            Detailed product information, usage flow, and full feature specs for{" "}
-            <ProductName />.
+            Evidence and published sources on lifting injuries, ergonomics, and
+            why organizations invest in tools that reduce physical demand.
           </p>
         </div>
       </div>
       <div className="page-body about-page-body">
-        <ValueSection />
-        <StepsSection />
-        <SpecsSection />
+        <OrgCaseSection />
         <section className="about-cta">
           <div className="container about-cta__inner">
             <p className="about-cta__sub">
-              Learn the story and mission behind <ProductName />, then reach out
-              to discuss the right fit for your team.
+              Explore product specs and reach out to discuss fit for your
+              department or agency.
             </p>
             <div className="about-cta__actions">
-              <Link className="btn btn--primary" to="/about">
-                Who We Are
+              <Link className="btn btn--primary" to="/product">
+                Product Details
               </Link>
               <Link className="btn btn--ghost" to="/contact">
                 Get in Touch

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { ProductName } from "../components/ProductName.tsx";
 import JsonLd from "../components/JsonLd.tsx";
 import { breadcrumbJsonLd } from "../content/structuredData.ts";
 
@@ -124,7 +125,7 @@ export default function Contact() {
     <>
       <JsonLd
         data={breadcrumbJsonLd([
-          { name: "The Riser", path: "/" },
+          { name: "The RISER", path: "/" },
           { name: "Contact", path: "/contact" },
         ])}
       />
@@ -132,7 +133,7 @@ export default function Contact() {
         <div className="container">
           <nav className="page-crumb" aria-label="Breadcrumb">
             <Link className="page-crumb__home" to="/">
-              The Riser
+              <ProductName />
             </Link>
             <span className="page-crumb__sep" aria-hidden>
               &gt;
@@ -141,7 +142,8 @@ export default function Contact() {
           </nav>
           <h1 className="page-hero__title">Contact Us</h1>
           <p className="page-hero__lead">
-            Reach the team behind The Riser for sales, support, or partnerships.
+            Reach the team behind <ProductName /> for sales, support, or
+            partnerships.
           </p>
         </div>
       </div>
@@ -150,23 +152,6 @@ export default function Contact() {
           <div className="contact-grid">
             <div className="contact-card">
               <div className="contact-card__profile">
-                <figure className="contact-card__portrait">
-                  <Link
-                    to="/about"
-                    className="contact-card__portrait-link image-link"
-                    aria-label="Learn about Rick Beedle on the About page"
-                  >
-                    <img
-                      src={asset("rick-beedle-the-riser-2.png")}
-                      alt="Rick Beedle, creator of The Riser"
-                      width={361}
-                      height={515}
-                      loading="lazy"
-                      decoding="async"
-                      className="contact-card__portrait-img"
-                    />
-                  </Link>
-                </figure>
                 <div className="contact-card__details">
                   <p className="contact-card__name">Rick Beedle</p>
                   <p className="contact-card__role">Firefighter &amp; Inventor</p>
@@ -196,6 +181,23 @@ export default function Contact() {
                     Based in Phoenix, AZ MST
                   </p>
                 </div>
+                <figure className="contact-card__portrait">
+                  <Link
+                    to="/about"
+                    className="contact-card__portrait-link image-link"
+                    aria-label="Learn about Rick Beedle on the About page"
+                  >
+                    <img
+                      src={asset("rick-beedle-the-riser-2.png")}
+                      alt="Rick Beedle, creator of The RISER"
+                      width={361}
+                      height={515}
+                      loading="lazy"
+                      decoding="async"
+                      className="contact-card__portrait-img"
+                    />
+                  </Link>
+                </figure>
               </div>
             </div>
             <div className="contact-card">
