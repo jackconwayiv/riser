@@ -2,7 +2,11 @@ import { Link } from "react-router-dom";
 import JsonLd from "../components/JsonLd.tsx";
 import { ProductName } from "../components/ProductName.tsx";
 import { breadcrumbJsonLd } from "../content/structuredData.ts";
-import { OrgCaseSection } from "../components/RiserSections.tsx";
+import {
+  OshaMythbustersSection,
+  OrgCaseSection,
+  RiserInjuryRoiSection,
+} from "../components/RiserSections.tsx";
 
 export default function DataDriven() {
   return (
@@ -26,12 +30,13 @@ export default function DataDriven() {
           </nav>
           <h1 className="page-hero__title">Data-Driven</h1>
           <p className="page-hero__lead">
-            Evidence and published sources on lifting injuries, ergonomics, and
-            why organizations invest in tools that reduce physical demand.
+            Evidence and published sources on lifting injuries and ergonomics support an investment in The RISER for savings and safety.
           </p>
         </div>
       </div>
       <div className="page-body about-page-body">
+        <OshaMythbustersSection />
+        <RiserInjuryRoiSection />
         <OrgCaseSection />
         <section className="about-cta">
           <div className="container about-cta__inner">

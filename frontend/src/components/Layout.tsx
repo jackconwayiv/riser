@@ -20,8 +20,15 @@ const asset = (path: string) => import.meta.env.BASE_URL + path;
 export default function Layout() {
   const year = new Date().getFullYear();
   const location = useLocation();
+  const isHome = location.pathname === "/";
   const seo = getSeoForPath(location.pathname);
   const [navOpen, setNavOpen] = useState(false);
+  const homeNavRevealedRef = useRef(
+    typeof window !== "undefined" && window.scrollY > 0,
+  );
+  const [headerVisible, setHeaderVisible] = useState(
+    () => !isHome || homeNavRevealedRef.current,
+  );
   const [narrowNav, setNarrowNav] = useState(
     () => typeof window !== "undefined" && window.matchMedia(NAV_MQ).matches,
   );
@@ -43,6 +50,30 @@ export default function Layout() {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- sync UI to URL
     setNavOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (!isHome) {
+      setHeaderVisible(true);
+      return;
+    }
+    const syncHeader = () => {
+      if (window.scrollY > 0) homeNavRevealedRef.current = true;
+      setHeaderVisible(homeNavRevealedRef.current);
+    };
+    const onScroll = () => {
+      if (window.scrollY > 0) {
+        homeNavRevealedRef.current = true;
+        setHeaderVisible(true);
+      }
+    };
+    syncHeader();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
+
+  useEffect(() => {
+    if (!headerVisible) setNavOpen(false);
+  }, [headerVisible]);
 
   useEffect(() => {
     if (!navOpen) return;
@@ -86,7 +117,11 @@ export default function Layout() {
           onClick={closeNav}
         />
       ) : null}
-      <header className="site-header">
+      <header
+        className={
+          "site-header" + (headerVisible ? " site-header--visible" : "")
+        }
+      >
         <NavLink className="site-logo" to="/" end>
           <img
             src={asset("RISER-logo-transparent.png")}

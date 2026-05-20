@@ -18,6 +18,7 @@
   --link-hover-width: 2px;
   --link-hover-ring: 0 0 0 var(--link-hover-width) var(--brand-red);
   --card-radius: 14px;
+  --site-topbar-height: calc(12px + 0.85rem * 1.25);
 
   /* === Text === */
   --text: #2a3340;
@@ -142,6 +143,9 @@ a:hover {
 }
 
 .site-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 51;
   background: var(--brand-red);
   color: var(--on-brand-solid);
   padding: 6px clamp(20px, 4vw, 48px);
@@ -178,6 +182,10 @@ a:hover {
 }
 
 @media (max-width: 640px) {
+  :root {
+    --site-topbar-height: calc(12px + 0.78rem * 1.25);
+  }
+
   .site-topbar__inner {
     justify-content: center;
     gap: 10px;
@@ -189,16 +197,34 @@ a:hover {
 
 .site-header {
   position: sticky;
-  top: 0;
+  top: var(--site-topbar-height);
   z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  max-height: 120px;
   padding: 10px clamp(20px, 4vw, 48px);
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  transition:
+    max-height 0.25s ease,
+    padding 0.25s ease,
+    opacity 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.site-header:not(.site-header--visible) {
+  max-height: 0;
+  padding-block: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-bottom-color: transparent;
+  background-color: transparent;
+  backdrop-filter: none;
 }
 
 .site-logo {
@@ -224,11 +250,13 @@ a:hover {
 
 .nav-link {
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text);
   text-decoration: none;
   padding: 6px 4px;
   border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .nav-link:hover {
@@ -308,6 +336,7 @@ a:hover {
   .site-nav.site-nav--open {
     display: flex;
     position: absolute;
+    z-index: 1;
     top: calc(100% + 10px);
     right: clamp(12px, 3vw, 40px);
     left: auto;
@@ -331,7 +360,7 @@ a:hover {
     padding: 12px 14px;
     border-radius: 10px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .site-nav.site-nav--open .nav-link--active {
@@ -362,7 +391,7 @@ a:hover {
     text-align: inherit;
     padding: 6px 4px;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 700;
   }
 
   .site-nav .nav-link--active {
@@ -613,12 +642,12 @@ a:hover {
 .hero__logo {
   display: block;
   margin-inline: auto;
-  width: 100%;
+  width: auto;
   max-width: min(840px, 100%);
   height: auto;
   max-height: min(280px, 44vw);
-  object-fit: contain;
-  object-position: center;
+  border-radius: var(--card-radius);
+  overflow: hidden;
 }
 
 .hero__lead {
@@ -1911,6 +1940,141 @@ a.home-stat-card__link.linked-card:focus-visible {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: 0.85rem;
+}
+
+.data-driven-osha {
+  --org-case-logo-width: 80px;
+  background: var(--surface);
+}
+
+.data-driven-osha__myth {
+  margin-bottom: clamp(40px, 5.5vw, 56px);
+}
+
+.data-driven-osha__myth .home-org-case__endorse {
+  margin-bottom: 0;
+}
+
+.data-driven-osha__estimator {
+  margin-bottom: clamp(12px, 2vw, 20px);
+  padding: clamp(28px, 4vw, 40px);
+  background: linear-gradient(
+    145deg,
+    var(--brand-navy) 0%,
+    #0d2844 55%,
+    #152f4d 100%
+  );
+  border-radius: 18px;
+  box-shadow: var(--shadow-md);
+  color: var(--text-on-dark);
+}
+
+.data-driven-osha__estimator-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 3vw, 28px);
+  text-align: center;
+}
+
+.data-driven-osha__estimator-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: var(--surface);
+  padding: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.data-driven-osha__estimator-content {
+  max-width: 42rem;
+}
+
+.data-driven-osha__estimator-eyebrow {
+  margin: 0 0 8px;
+  font-size: var(--type-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-gold);
+}
+
+.data-driven-osha__estimator-title {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text-on-dark);
+}
+
+.data-driven-osha__estimator-lead {
+  margin: 0 0 16px;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  line-height: 1.55;
+  color: var(--text-on-dark-muted);
+}
+
+.data-driven-osha__estimator-stat {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--brand-gold);
+}
+
+.data-driven-osha__estimator-btn {
+  font-size: clamp(1rem, 1.8vw, 1.08rem);
+  padding: 16px 32px;
+}
+
+.data-driven-osha__estimator-btn:hover,
+.data-driven-osha__estimator-btn:focus-visible {
+  box-shadow:
+    var(--shadow-md),
+    0 0 0 3px rgba(244, 213, 141, 0.35);
+}
+
+.data-driven-osha__estimator-external-icon {
+  flex-shrink: 0;
+  font-size: 1.1em;
+}
+
+@media (min-width: 720px) {
+  .data-driven-osha__estimator-inner {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: clamp(28px, 4vw, 40px);
+  }
+
+  .data-driven-osha__estimator-logo {
+    flex-shrink: 0;
+  }
+
+  .data-driven-osha__estimator-content {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.data-driven-roi {
+  background: var(--surface-brand);
+}
+
+.data-driven-roi__text {
+  max-width: 72ch;
+  margin: 0 auto;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--type-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: var(--text-on-dark);
 }
 
 .home-org-case {

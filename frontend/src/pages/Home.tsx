@@ -32,7 +32,7 @@ export default function Home() {
         />
         <div className="hero__inner">
           <p className="hero__lead">
-            A new type of patient lifting device created by a{" "}
+          <strong className="hero__emphasis">The RISER</strong> is a new type of patient lifting device created by a{" "}
             <strong className="hero__emphasis">firefighter</strong> specifically
             for <strong className="hero__emphasis">EMS</strong> use
           </p>
@@ -65,7 +65,7 @@ export default function Home() {
         <div className="container home-position__inner">
           <p className="home-position__text">
             Not a stair chair.
-            <br />
+            <br /><br />
             <ProductName /> is a <strong className="home-emphasis">new</strong> type
             of patient lifting device.
           </p>
@@ -103,7 +103,7 @@ export default function Home() {
           </p>
           <div className="about-cta__actions">
             <Link className="btn btn--primary" to="/about">
-              About the <ProductName />
+              About <ProductName />
             </Link>
             <Link className="btn btn--ghost" to="/contact">
               Contact Us

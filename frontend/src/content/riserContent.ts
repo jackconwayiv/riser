@@ -1,3 +1,5 @@
+import { PRODUCT_NAME } from "./brand.ts";
+
 export type OrgStatAccent = "fire" | "ems" | "neutral";
 
 export type OrgStat = {
@@ -14,6 +16,35 @@ export type OrgStat = {
 /** USFA – *Emergency Services: Ergonomics and Wellness* (PDF); passage on ergonomic interventions & equipment. */
 export const USFA_ERGONOMICS_WELLNESS_PDF_URL =
   "https://www.usfa.fema.gov/downloads/pdf/publications/emergency-services-ergonomics-and-wellness.pdf";
+
+/** OSHA – *Safe Patient Handling: Busting the Myths* (PDF). */
+export const OSHA_MYTHBUSTERS_PDF_URL =
+  "https://www.osha.gov/sites/default/files/3.1_Mythbusters_508.pdf";
+
+export const OSHA_SAFETY_PAYS_ESTIMATOR_URL =
+  "https://www.osha.gov/safetypays/estimator";
+
+export const DATA_DRIVEN_OSHA_TITLE = "OSHA: Debunking the Myths & Injury Cost Calculator";
+
+export const DATA_DRIVEN_OSHA_LEAD =
+  "OSHA's cost estimator helps quantify what injuries mean for your organization. Evaluate how an investment in The RISER will save your organization money and improve safety.";
+
+export const RISER_INJURY_ROI_STATEMENT = `The cost of ${PRODUCT_NAME} will be recouped with the prevention of a single injury of one employee and will continue to save the organization money exponentially over its lifespan.`;
+
+export const OSHA_MYTHBUSTERS_QUOTE =
+  "More than 30 years of research and experience shows that relying on proper body mechanics or manual lifting techniques alone is not effective to reduce back and other musculoskeletal injuries.";
+
+export const OSHA_SAFETY_PAYS_CTA_EYEBROW = "OSHA $afety Pays";
+
+export const OSHA_SAFETY_PAYS_CTA_TITLE = "Injury Cost Estimator";
+
+export const OSHA_SAFETY_PAYS_CTA_LEAD =
+  "Model direct and indirect costs for specific injury types and see how much additional sales your organization would need to cover them.";
+
+export const OSHA_STRAIN_INJURY_AVG_COST =
+  "$32,023 average cost of a workplace strain injury";
+
+export const OSHA_SAFETY_PAYS_CTA_BUTTON = "Calculate injury costs";
 
 export const ORG_STATS: OrgStat[] = [
   {
@@ -59,7 +90,7 @@ export const ORG_STATS: OrgStat[] = [
     body: "$32,023 average cost of workplace strain injury.",
     accent: "ems",
     logoSrc: "stats/OSHA-Logo-2.png",
-    sourceUrl: "https://www.osha.gov/safetypays/estimator",
+    sourceUrl: OSHA_SAFETY_PAYS_ESTIMATOR_URL,
   },
   {
     id: "cdc",

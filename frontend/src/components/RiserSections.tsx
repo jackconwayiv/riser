@@ -1,3 +1,4 @@
+import { FaExternalLinkSquareAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ProductName, textWithProductName } from "./ProductName.tsx";
 import { PRODUCT_NAME } from "../content/brand.ts";
@@ -11,6 +12,17 @@ import {
   ORG_STATS,
   RISER_SPECS,
   RISER_STEPS,
+  DATA_DRIVEN_OSHA_LEAD,
+  DATA_DRIVEN_OSHA_TITLE,
+  OSHA_MYTHBUSTERS_PDF_URL,
+  OSHA_MYTHBUSTERS_QUOTE,
+  OSHA_SAFETY_PAYS_CTA_BUTTON,
+  OSHA_SAFETY_PAYS_CTA_EYEBROW,
+  OSHA_SAFETY_PAYS_CTA_LEAD,
+  OSHA_SAFETY_PAYS_CTA_TITLE,
+  OSHA_SAFETY_PAYS_ESTIMATOR_URL,
+  OSHA_STRAIN_INJURY_AVG_COST,
+  RISER_INJURY_ROI_STATEMENT,
   USFA_ERGONOMICS_WELLNESS_PDF_URL,
 } from "../content/riserContent.ts";
 
@@ -104,7 +116,7 @@ export function ValueSection() {
             />
           </figure>
           <p className="home-value__lead">
-            The first and only portable lifting device that reduces the amount of
+          <strong className="home-value__stat">The RISER</strong> is the first and only portable lifting device that reduces the amount of
             force needed to lift a patient by providing a stable platform and
             leverage, yielding a{" "}
             <strong className="home-value__stat">6:1 mechanical advantage</strong>{" "}
@@ -166,7 +178,7 @@ export function SpecsSection() {
       className="home-specs section section--alt"
     >
       <div className="container">
-        <h2 className="section__title">Specifications and Features:</h2>
+        <h2 className="section__title">Specifications and Features of The RISER:</h2>
         <div className="home-specs__layout">
           <div className="home-specs__media home-specs__media--left">
             <img
@@ -236,6 +248,111 @@ export function MechanicalAdvantageVideoSection() {
             .
           </video>
         </div>
+      </div>
+    </section>
+  );
+}
+
+export function OshaMythbustersSection() {
+  return (
+    <section
+      className="data-driven-osha section"
+      aria-labelledby="data-driven-osha-heading"
+    >
+      <div className="container">
+        <h2 id="data-driven-osha-heading" className="section__title">
+          {DATA_DRIVEN_OSHA_TITLE}
+        </h2>
+        <p className="section__lead">{DATA_DRIVEN_OSHA_LEAD}</p>
+
+        <div className="data-driven-osha__myth">
+          <div className="home-org-case__endorse">
+            <a
+              className="home-org-case__endorse-link image-link"
+              href={OSHA_MYTHBUSTERS_PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open OSHA Safe Patient Handling: Busting the Myths (PDF, new tab)"
+            >
+              <img
+                className="home-org-case__logo"
+                src={asset("stats/OSHA-Logo-2.png")}
+                alt="OSHA"
+                width={80}
+                height={40}
+                loading="lazy"
+                decoding="async"
+              />
+              <figure className="home-org-case__endorse-quote">
+                <blockquote cite={OSHA_MYTHBUSTERS_PDF_URL}>
+                  <p>{OSHA_MYTHBUSTERS_QUOTE}</p>
+                </blockquote>
+                <figcaption className="home-org-case__source-cite">
+                  Source: OSHA — Safe Patient Handling: Busting the Myths (PDF)
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
+
+        <aside
+          className="data-driven-osha__estimator"
+          aria-labelledby="data-driven-osha-estimator-heading"
+        >
+          <div className="data-driven-osha__estimator-inner">
+            <img
+              className="data-driven-osha__estimator-logo"
+              src={asset("stats/OSHA round logo.jpg")}
+              alt=""
+              width={72}
+              height={72}
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="data-driven-osha__estimator-content">
+              <p className="data-driven-osha__estimator-eyebrow">
+                {OSHA_SAFETY_PAYS_CTA_EYEBROW}
+              </p>
+              <h3
+                id="data-driven-osha-estimator-heading"
+                className="data-driven-osha__estimator-title"
+              >
+                {OSHA_SAFETY_PAYS_CTA_TITLE}
+              </h3>
+              <p className="data-driven-osha__estimator-lead">
+                {OSHA_SAFETY_PAYS_CTA_LEAD}
+              </p>
+              <p className="data-driven-osha__estimator-stat">
+                {OSHA_STRAIN_INJURY_AVG_COST}
+              </p>
+              <a
+                className="btn btn--primary data-driven-osha__estimator-btn"
+                href={OSHA_SAFETY_PAYS_ESTIMATOR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${OSHA_SAFETY_PAYS_CTA_BUTTON} (opens OSHA.gov in a new tab)`}
+              >
+                {OSHA_SAFETY_PAYS_CTA_BUTTON}
+                <FaExternalLinkSquareAlt
+                  aria-hidden
+                  className="data-driven-osha__estimator-external-icon"
+                />
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+export function RiserInjuryRoiSection() {
+  return (
+    <section className="data-driven-roi section" aria-label="Return on investment">
+      <div className="container">
+        <p className="data-driven-roi__text">
+          {textWithProductName(RISER_INJURY_ROI_STATEMENT)}
+        </p>
       </div>
     </section>
   );
