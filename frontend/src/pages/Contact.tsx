@@ -109,10 +109,10 @@ export default function Contact() {
         return;
       }
 
-      setErrors({ form: "Unable to send right now. Please email rick@the-riser.org." });
+      setErrors({ form: "Unable to send right now. Please email rbeedle@ems-innovations.com." });
       setStatus("error");
     } catch {
-      setErrors({ form: "Unable to send right now. Please email rick@the-riser.org." });
+      setErrors({ form: "Unable to send right now. Please email rbeedle@ems-innovations.com." });
       setStatus("error");
     }
   }
@@ -167,12 +167,12 @@ export default function Contact() {
                   </p>
 
                   <p className="contact-card__meta contact-card__email-line">
-                    <a href="mailto:rick@the-riser.org">
+                    <a href="mailto:rbeedle@ems-innovations.com">
                       <FaEnvelope
                         aria-hidden
                         className="contact-card__email-icon"
                       />
-                      rick@the-riser.org
+                      rbeedle@ems-innovations.com
                     </a>
                   </p>
 

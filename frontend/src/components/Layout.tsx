@@ -101,9 +101,9 @@ export default function Layout() {
       </a>
       <div className="site-topbar">
         <div className="site-topbar__inner">
-          <a href="mailto:rick@the-riser.org" className="site-topbar__item">
+          <a href="mailto:rbeedle@ems-innovations.com" className="site-topbar__item">
             <FaEnvelope aria-hidden className="site-topbar__icon" />
-            rick@the-riser.org
+            rbeedle@ems-innovations.com
           </a>
           <span aria-hidden>•</span>
           <a href="tel:+14807103954" className="site-topbar__item">
@@ -253,9 +253,9 @@ export default function Layout() {
             <p className="site-footer__contact-name">Rick Beedle</p>
             <p className="site-footer__contact-role">Firefighter &amp; Inventor</p>
             <p className="site-footer__contact-line">
-              <a href="mailto:rick@the-riser.org">
+              <a href="mailto:rbeedle@ems-innovations.com">
                 <FaEnvelope aria-hidden className="site-footer__contact-icon" />
-                rick@the-riser.org
+                rbeedle@ems-innovations.com
               </a>
             </p>
             <p className="site-footer__contact-line">
