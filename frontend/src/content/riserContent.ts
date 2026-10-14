@@ -171,3 +171,14 @@ export const FIREHOUSE_AWARD_QUOTE =
   "The RISER is a thoughtfully designed, highly functional tool that supports safer patient handling while reducing the risk of injury to fire and EMS professionals… a solid investment in firefighter and EMS safety.";
 
 export const FIREHOUSE_AWARD_QUOTE_ATTRIBUTION = "Firehouse Magazine";
+
+export const SENIOR_AWARD_URL =
+  "https://www.globenewswire.com/news-release/2026/09/29/3370775/0/en/ems-innovations-the-riser-named-caregiver-support-product-of-the-year-in-2026-senior-innovation-awards.html";
+
+export const SENIOR_AWARD_CAPTION =
+  "2026 Senior Innovation Awards — Caregiver Support Product of the Year";
+
+export const SENIOR_AWARD_QUOTE =
+  "[The RISER] utilizes a smooth pivoting transition... allowing responders to guide fall patients upward in a secure, ergonomic motion that protects both patient dignity and provider safety.";
+
+export const SENIOR_AWARD_QUOTE_ATTRIBUTION = "Senior Innovation Awards";

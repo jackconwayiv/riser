@@ -9,6 +9,10 @@ import {
   FIREHOUSE_AWARD_QUOTE,
   FIREHOUSE_AWARD_QUOTE_ATTRIBUTION,
   FIREHOUSE_AWARD_URL,
+  SENIOR_AWARD_CAPTION,
+  SENIOR_AWARD_QUOTE,
+  SENIOR_AWARD_QUOTE_ATTRIBUTION,
+  SENIOR_AWARD_URL,
   ORG_STATS,
   RISER_SPECS,
   RISER_STEPS,
@@ -36,6 +40,33 @@ export function AwardsSection() {
     >
       <div className="container">
         <div className="home-awards__grid">
+          <figure className="home-awards__figure">
+            <figcaption className="home-awards__caption">
+              {SENIOR_AWARD_CAPTION}
+            </figcaption>
+            <a
+              href={SENIOR_AWARD_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="home-awards__link image-link"
+            >
+              <img
+                src={asset("senior-awards.png")}
+                alt={SENIOR_AWARD_CAPTION}
+                width={119}
+                height={190}
+                loading="lazy"
+                decoding="async"
+                className="home-awards__img home-awards__img--portrait"
+              />
+            </a>
+            <blockquote className="home-awards__quote" cite={SENIOR_AWARD_URL}>
+              <p>{textWithProductName(SENIOR_AWARD_QUOTE)}</p>
+              <footer className="home-awards__quote-cite">
+                —{SENIOR_AWARD_QUOTE_ATTRIBUTION}
+              </footer>
+            </blockquote>
+          </figure>
           <figure className="home-awards__figure">
             <figcaption className="home-awards__caption">
               2025 EMS World Innovation Awards Winner

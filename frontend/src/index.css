@@ -485,7 +485,7 @@ a:hover {
 
 .site-footer__awards {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
   margin-top: 20px;
@@ -506,6 +506,24 @@ a:hover {
   display: block;
   border-radius: 10px;
   box-shadow: var(--shadow-sm);
+}
+
+.site-footer__award-link--portrait.image-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.site-footer__award-img--portrait {
+  width: auto;
+  max-width: calc(100% - 16px);
+  max-height: 72px;
+  margin-block: 6px;
+  object-fit: contain;
+  box-shadow: none;
 }
 
 .site-footer__contact-name {
@@ -1570,17 +1588,44 @@ a.home-stat-card__link.linked-card:focus-visible {
 
 .home-awards__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(24px, 4vw, 40px);
   align-items: start;
   justify-items: center;
-  max-width: 720px;
+  max-width: 1080px;
   margin-inline: auto;
+}
+
+@media (max-width: 900px) {
+  .home-awards__grid {
+    grid-template-columns: repeat(2, minmax(0, 320px));
+    justify-content: center;
+    max-width: 720px;
+  }
+
+  .home-awards__figure:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 640px) {
   .home-awards__grid {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .home-awards__figure {
+    width: 100%;
+  }
+
+  .home-awards__figure + .home-awards__figure {
+    margin-top: 28px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+
+  .home-awards__figure:last-child:nth-child(odd) {
+    grid-column: auto;
   }
 }
 
@@ -1609,12 +1654,26 @@ a.home-stat-card__link.linked-card:focus-visible {
   box-shadow: var(--shadow-md);
 }
 
+.home-awards__img--portrait {
+  width: auto;
+  max-width: none;
+  max-height: 190px;
+  object-fit: contain;
+}
+
 .home-awards__caption {
   margin: 0 0 12px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 1.08rem;
+  font-weight: 700;
   color: var(--brand-navy);
-  line-height: 1.4;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 641px) {
+  .home-awards__caption {
+    min-height: 4.05em;
+  }
 }
 
 .home-awards__quote {

@@ -9,6 +9,8 @@ import { PRODUCT_NAME } from "../content/brand.ts";
 import {
   EMS_WORLD_AWARD_URL,
   FIREHOUSE_AWARD_URL,
+  SENIOR_AWARD_CAPTION,
+  SENIOR_AWARD_URL,
 } from "../content/riserContent.ts";
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
@@ -197,6 +199,22 @@ export default function Layout() {
               <NavLink to="/contact">Contact</NavLink>
             </nav>
             <div className="site-footer__awards" aria-label="Recognition awards">
+              <a
+                href={SENIOR_AWARD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="site-footer__award-link site-footer__award-link--portrait image-link"
+              >
+                <img
+                  src={asset("senior-awards.png")}
+                  alt={SENIOR_AWARD_CAPTION}
+                  width={53}
+                  height={84}
+                  className="site-footer__award-img site-footer__award-img--portrait"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
               <a
                 href={EMS_WORLD_AWARD_URL}
                 target="_blank"

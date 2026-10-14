@@ -2,6 +2,8 @@ import { PRODUCT_NAME } from "./brand.ts";
 import {
   EMS_WORLD_AWARD_URL,
   FIREHOUSE_AWARD_URL,
+  SENIOR_AWARD_CAPTION,
+  SENIOR_AWARD_URL,
 } from "./riserContent.ts";
 import { absoluteAssetUrl, canonicalUrl, getSiteUrl } from "./seo.ts";
 
@@ -22,7 +24,7 @@ export function organizationJsonLd() {
       areaServed: "US",
       availableLanguage: "English",
     },
-    sameAs: [EMS_WORLD_AWARD_URL, FIREHOUSE_AWARD_URL],
+    sameAs: [SENIOR_AWARD_URL, EMS_WORLD_AWARD_URL, FIREHOUSE_AWARD_URL],
   };
 }
 
@@ -47,6 +49,7 @@ export function productJsonLd() {
     ],
     url: canonicalUrl("/product"),
     award: [
+      SENIOR_AWARD_CAPTION,
       "2025 EMS World Innovation Awards winner",
       "2025 Firehouse Innovation Awards winner",
     ],
