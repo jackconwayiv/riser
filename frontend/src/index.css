@@ -517,6 +517,30 @@ a:hover {
   box-shadow: var(--shadow-sm);
 }
 
+.site-footer__award-link--wordmark.image-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  aspect-ratio: 3 / 2;
+  padding: 0;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.site-footer__award-wordmark {
+  font-family: var(--font-ui);
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #e10600;
+}
+
 .site-footer__award-img--portrait {
   width: auto;
   max-width: calc(100% - 16px);
@@ -1588,21 +1612,16 @@ a.home-stat-card__link.linked-card:focus-visible {
 
 .home-awards__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 320px));
   gap: clamp(24px, 4vw, 40px);
   align-items: start;
+  justify-content: center;
   justify-items: center;
-  max-width: 1080px;
+  max-width: 720px;
   margin-inline: auto;
 }
 
 @media (max-width: 900px) {
-  .home-awards__grid {
-    grid-template-columns: repeat(2, minmax(0, 320px));
-    justify-content: center;
-    max-width: 720px;
-  }
-
   .home-awards__figure:last-child:nth-child(odd) {
     grid-column: 1 / -1;
   }
@@ -1642,6 +1661,32 @@ a.home-stat-card__link.linked-card:focus-visible {
   margin-inline: auto;
   border-radius: 12px;
   overflow: hidden;
+}
+
+.home-awards__link--wordmark.image-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 280px;
+  /* Match .home-awards__img--portrait max-height (Senior Awards, side-by-side) */
+  height: 190px;
+  padding: 0;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.home-awards__wordmark {
+  font-family: var(--font-ui);
+  font-size: clamp(2.75rem, 6vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #e10600;
 }
 
 .home-awards__img {

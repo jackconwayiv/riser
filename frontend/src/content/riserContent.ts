@@ -157,6 +157,17 @@ export const RISER_SPECS = [
   },
 ];
 
+export const TIME_AWARD_URL =
+  "https://time.com/collection/best-inventions-special-mentions/2026/ems-innovations-the-riser/";
+
+export const TIME_AWARD_CAPTION =
+  "TIME Best Inventions of 2026: Special Mentions";
+
+export const TIME_AWARD_QUOTE =
+  "Invented by a firefighter, the Riser is an ergonomic patient-lifting device that safely boosts individuals from a supine position on the ground to a seated posture... reducing caregiver strain.";
+
+export const TIME_AWARD_QUOTE_ATTRIBUTION = "TIME Staff";
+
 export const EMS_WORLD_AWARD_URL =
   "https://www.hmpgloballearningnetwork.com/site/emsworld/feature/2025-innovation-awards-winners";
 

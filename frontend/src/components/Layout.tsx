@@ -11,6 +11,8 @@ import {
   FIREHOUSE_AWARD_URL,
   SENIOR_AWARD_CAPTION,
   SENIOR_AWARD_URL,
+  TIME_AWARD_CAPTION,
+  TIME_AWARD_URL,
 } from "../content/riserContent.ts";
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
@@ -199,6 +201,17 @@ export default function Layout() {
               <NavLink to="/contact">Contact</NavLink>
             </nav>
             <div className="site-footer__awards" aria-label="Recognition awards">
+              <a
+                href={TIME_AWARD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="site-footer__award-link site-footer__award-link--wordmark image-link"
+                aria-label={TIME_AWARD_CAPTION}
+              >
+                <span className="site-footer__award-wordmark" aria-hidden="true">
+                  TIME
+                </span>
+              </a>
               <a
                 href={SENIOR_AWARD_URL}
                 target="_blank"

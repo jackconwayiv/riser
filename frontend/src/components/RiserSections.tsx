@@ -13,6 +13,10 @@ import {
   SENIOR_AWARD_QUOTE,
   SENIOR_AWARD_QUOTE_ATTRIBUTION,
   SENIOR_AWARD_URL,
+  TIME_AWARD_CAPTION,
+  TIME_AWARD_QUOTE,
+  TIME_AWARD_QUOTE_ATTRIBUTION,
+  TIME_AWARD_URL,
   ORG_STATS,
   RISER_SPECS,
   RISER_STEPS,
@@ -40,6 +44,28 @@ export function AwardsSection() {
     >
       <div className="container">
         <div className="home-awards__grid">
+          <figure className="home-awards__figure">
+            <figcaption className="home-awards__caption">
+              {TIME_AWARD_CAPTION}
+            </figcaption>
+            <a
+              href={TIME_AWARD_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="home-awards__link home-awards__link--wordmark image-link"
+              aria-label={TIME_AWARD_CAPTION}
+            >
+              <span className="home-awards__wordmark" aria-hidden="true">
+                TIME
+              </span>
+            </a>
+            <blockquote className="home-awards__quote" cite={TIME_AWARD_URL}>
+              <p>{textWithProductName(TIME_AWARD_QUOTE)}</p>
+              <footer className="home-awards__quote-cite">
+                —{TIME_AWARD_QUOTE_ATTRIBUTION}
+              </footer>
+            </blockquote>
+          </figure>
           <figure className="home-awards__figure">
             <figcaption className="home-awards__caption">
               {SENIOR_AWARD_CAPTION}

@@ -39,7 +39,7 @@ export const ROUTE_SEO: Record<string, PageSeo> = {
     path: "/",
     title: "The RISER — EMS & Fire Patient Lifting Device",
     description:
-      "The RISER is a patient lifting device built by a firefighter for EMS and fire crews. Winner of the 2026 Senior Innovation, EMS World, and Firehouse Innovation awards.",
+      "The RISER is a patient lifting device built by a firefighter for EMS and fire crews. Named in TIME Best Inventions of 2026 Special Mentions, and winner of the 2026 Senior Innovation, EMS World, and Firehouse Innovation awards.",
     ogImage: DEFAULT_OG_IMAGE,
   },
   "/product": {
